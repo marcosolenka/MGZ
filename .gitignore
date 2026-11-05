@@ -1,0 +1,10 @@
+#Ignore Visual Studio Code settings folder
+.vscode/
+
+#Ignore HTML Folder
+.html/
+
+# Ignore log files and temp files
+*.log
+*.temp  
+
