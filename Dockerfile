@@ -1,12 +1,7 @@
 FROM php:8.3.4-fpm
 
-# Instala dependências do sistema necessárias para compilar extensões PECL
-RUN apt-get update -y && apt-get install -y \
-    libzip-dev \
-    zip \
-    libssl-dev
+RUN docker-php-ext-install pdo pdo_mysql
+RUN docker-php-ext-enable pdo_mysql
 
-# Instala a extensão oficial do MongoDB via PECL e o driver zip nativo
-RUN pecl install mongodb \
-    && docker-php-ext-enable mongodb \
-    && docker-php-ext-install zip
+RUN apt-get update -y && apt-get install -y libzip-dev zip
+RUN docker-php-ext-install zip
